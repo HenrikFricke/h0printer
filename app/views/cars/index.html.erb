@@ -18,30 +18,16 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>
-            <input type="checkbox" id="test5" />
-            <label for="test5"></label>
-          </td>
-          <td>Unimog</td>
-          <td>UE-PF-67</td>
-        </tr>
-        <tr>
-          <td>
-            <input type="checkbox" id="test7" />
-            <label for="test7"></label>
-          </td>
-          <td>LKW</td>
-          <td>UE-JF-60</td>
-        </tr>
-        <tr>
-          <td>
-            <input type="checkbox" id="test6" />
-            <label for="test6"></label>
-          </td>
-          <td>Bla Bla Car</td>
-          <td>UE-JF-60</td>
-        </tr>
+        <% @cars.each do |car| %>
+          <tr>
+            <td>
+              <%= check_box_tag car.id %>
+              <%= label_tag car.id, "" %>
+            </td>
+            <td><%= car.name %></td>
+            <td><%= car.mark %></td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </form>

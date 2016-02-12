@@ -1,0 +1,25 @@
+<div class="col s12">
+  <h4>Neues Fahrzeug eintragen</h4>
+</div>
+<%= form_for :cars, :url => cars_path, :html => {:class => "col s12"} do |f| %>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.text_field :name, :placeholder => 'Unimog' %>
+      <%= f.label :name %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.text_field :mark, :placeholder => 'UE-J-60' %>
+      <%= f.label :mark, 'Kennzeichen' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= button_tag(type: 'submit', class: "btn waves-effect waves-light") do %>
+        Eintragen
+        <i class="material-icons right">send</i>
+      <% end %>
+    </div>
+  </div>
+<% end %>
