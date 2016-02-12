@@ -10,10 +10,17 @@ class CarsController < ApplicationController
   def create
     @car = Car.new(car_params)
     if @car.save
-      redirect_to cars_path
+      redirect_to root_path
     else
       render 'new'
     end
+  end
+
+  def destroy
+    @car = Car.find(params[:id])
+    @car.destroy
+
+    redirect_to root_path
   end
 
   private
