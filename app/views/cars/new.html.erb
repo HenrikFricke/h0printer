@@ -2,15 +2,26 @@
   <h4>Neues Fahrzeug eintragen</h4>
 </div>
 <%= form_for :cars, :url => cars_path, :html => {:class => "col s12"} do |f| %>
+  <% if @car.errors.any? %>
+    <div class="row">
+      <div class="col s12">
+        <div class="card-panel red lighten-1">
+          <span class="white-text">
+            Huch, es m&uuml;ssen alles Felder ausgef&uuml;llt werden...
+          </span>
+        </div>
+      </div>
+    </div>
+  <% end %>
   <div class="row">
     <div class="input-field col s12">
-      <%= f.text_field :name, :placeholder => 'Unimog' %>
+      <%= f.text_field :name, :placeholder => 'Unimog', :value => @car.errors.any? ? @car.name : '' %>
       <%= f.label :name %>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s12">
-      <%= f.text_field :mark, :placeholder => 'UE-J-60' %>
+      <%= f.text_field :mark, :placeholder => 'UE-J-60', :value => @car.errors.any? ? @car.mark : '' %>
       <%= f.label :mark, 'Kennzeichen' %>
     </div>
   </div>
