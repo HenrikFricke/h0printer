@@ -4,3 +4,4 @@
 
 $(document).ready ->
   $('.modal-trigger').leanModal()
+  $(".button-collapse").sideNav()
