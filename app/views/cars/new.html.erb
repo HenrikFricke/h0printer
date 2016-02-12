@@ -1,7 +1,7 @@
 <div class="col s12">
   <h4>Neues Fahrzeug eintragen</h4>
 </div>
-<%= form_for :cars, :url => cars_path, :html => {:class => "col s12"} do |f| %>
+<%= form_for :cars, :url => cars_path, html: {class: "col s12"} do |f| %>
   <% if @car.errors.any? %>
     <div class="row">
       <div class="col s12">
@@ -15,14 +15,14 @@
   <% end %>
   <div class="row">
     <div class="input-field col s12">
-      <%= f.text_field :name, :placeholder => 'Unimog', :value => @car.errors.any? ? @car.name : '' %>
-      <%= f.label :name %>
+      <%= f.text_field :name, required: true, class: 'validate', placeholder: 'Unimog', value: @car.errors.any? ? @car.name : '' %>
+      <%= f.label :name, 'data-error': 'Dieses Feld muss ausgefüllt werden...' %>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s12">
-      <%= f.text_field :mark, :placeholder => 'UE-J-60', :value => @car.errors.any? ? @car.mark : '' %>
-      <%= f.label :mark, 'Kennzeichen' %>
+      <%= f.text_field :mark, required: true, placeholder: 'UE-J-60', value: @car.errors.any? ? @car.mark : '' %>
+      <%= f.label :mark, 'Kennzeichen', 'data-error': 'Dieses Feld muss ausgefüllt werden...' %>
     </div>
   </div>
   <div class="row">
