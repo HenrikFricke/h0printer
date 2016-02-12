@@ -1,0 +1,18 @@
+{
+  "name": "h0printer",
+  "homepage": "https://github.com/HenrikFricke/h0printer",
+  "authors": [
+    "Henrik Fricke <henrik.fricke@jimdo.com>"
+  ],
+  "description": "Tool to create marks for H0 cars",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
