@@ -1,40 +1,46 @@
 <div class="col s12">
-  <form action="#">
-    <table class="bordered responsive-table kfz-table z-depth-1 centered">
-      <thead>
+  <h5 class="left">&Uuml;bersicht</h5>
+  <a href="cars/new" class="right waves-effect waves-light btn green lighten-1">
+    <i class="material-icons left">queue</i>
+    Neuer Eintrag
+  </a>
+</div>
+<div class="col s12" style="margin-top: 30px">
+  <table class="bordered responsive-table kfz-table z-depth-1 centered">
+    <thead>
+      <tr>
+        <th data-field="id">Fahrzeug</th>
+        <th data-field="name">Kennzeichen</th>
+        <th data-field="actions">Aktionen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cars.each do |car| %>
         <tr>
-          <th data-field="id">Fahrzeug</th>
-          <th data-field="name">Kennzeichen</th>
-          <th data-field="actions">Aktionen</th>
+          <td><%= car.name %></td>
+          <td><%= car.mark %></td>
+          <td>
+            <a
+              href="cars/<%= car.id %>/edit"
+              class="waves-effect waves-light btn grey darken-3 tooltipped"
+              data-position="top"
+              data-delay="300"
+              data-tooltip="Fahrzeug bearbeiten">
+              <i class="material-icons">settings</i>
+            </a>
+            <a
+              href="#deletemodal<%= car.id %>"
+              class="waves-effect waves-light btn red lighten-1 tooltipped modal-trigger"
+              data-position="top"
+              data-delay="300"
+              data-tooltip="Fahrzeug löschen">
+              <i class="material-icons">delete</i>
+            </a>
+          </td>
         </tr>
-      </thead>
-      <tbody>
-        <% @cars.each do |car| %>
-          <tr>
-            <td><%= car.name %></td>
-            <td><%= car.mark %></td>
-            <td>
-              <a
-                class="waves-effect waves-light btn teal lighten-1 tooltipped"
-                data-position="top"
-                data-delay="300"
-                data-tooltip="Fahrzeug bearbeiten">
-                <i class="material-icons">settings</i>
-              </a>
-              <a
-                href="#deletemodal<%= car.id %>"
-                class="waves-effect waves-light btn red lighten-1 tooltipped modal-trigger"
-                data-position="top"
-                data-delay="300"
-                data-tooltip="Fahrzeug löschen">
-                <i class="material-icons">delete</i>
-              </a>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </form>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 <% @cars.each do |car| %>
   <div id="deletemodal<%= car.id %>" class="modal bottom-sheet">

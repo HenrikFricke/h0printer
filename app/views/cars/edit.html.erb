@@ -1,0 +1,36 @@
+<div class="col s12">
+  <h4>Fahrzeug bearbeiten</h4>
+</div>
+<%= form_for :cars, url: car_path(@car), method: :patch, html: {class: "col s12"} do |f| %>
+  <% if @car.errors.any? %>
+    <div class="row">
+      <div class="col s12">
+        <div class="card-panel red lighten-1">
+          <span class="white-text">
+            Huch, es m&uuml;ssen alles Felder ausgef&uuml;llt werden...
+          </span>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.text_field :name, required: true, class: 'validate', placeholder: 'Unimog', value: @car.name  %>
+      <%= f.label :name, 'data-error': 'Dieses Feld muss ausgefüllt werden...' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.text_field :mark, required: true, placeholder: 'UE-J-60', value: @car.mark %>
+      <%= f.label :mark, 'Kennzeichen', 'data-error': 'Dieses Feld muss ausgefüllt werden...' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= button_tag(type: 'submit', class: "btn waves-effect waves-light") do %>
+        Eintragen
+        <i class="material-icons right">send</i>
+      <% end %>
+    </div>
+  </div>
+<% end %>
