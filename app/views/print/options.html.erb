@@ -1,0 +1,10 @@
+<h5>Schritt 2 von 3</h5>
+<div class="progress">
+    <div class="determinate" style="width: 66.66%"></div>
+</div>
+<%= form_tag({controller: "print", action: "pdf"}, method: "get") do %>
+  <% @cars.each do |car| %>
+    <%= hidden_field_tag("cars[]", car) %>
+  <% end %>
+  <%= submit_tag("Weiter", class: "right waves-effect waves-light btn") %>
+<% end %>

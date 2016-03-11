@@ -1,0 +1,25 @@
+<h5>Schritt 1 von 3</h5>
+<div class="progress">
+    <div class="determinate" style="width: 33.33%"></div>
+</div>
+<p>Bitte w&auml;hle die Kennzeichen aus, die du ausdrucken willst:</p>
+<%= render partial: "error" %>
+<%= form_tag({controller: "print", action: "options"}, method: "get") do %>
+  <div class="row">
+    <% @cars.each do |car| %>
+      <div class="col s12 m6">
+        <div class="card grey lighten-5">
+          <div class="card-content black-text">
+            <span class="card-title"><%= car.name %></span>
+            <p><%= car.mark %></p>
+          </div>
+          <div class="card-action">
+            <%= check_box_tag("cars[]", car.id, false, {id: "cars_#{car.id}"}) %>
+            <%= label_tag("cars_#{car.id}", "Auswählen") %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <%= submit_tag("Weiter", class: "right waves-effect waves-light btn") %>
+<% end %>

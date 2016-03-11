@@ -1,0 +1,14 @@
+<% if params.has_key?(:error) %>
+  <% if params[:error] == "nocars" %>
+    <div class="row">
+      <div class="col s12">
+        <div class="card-panel red">
+          <span class="white-text">
+            Uups, da ist ein Fehler passiert. Bitte w&auml;hle
+            mindestens ein Kennzeichen aus.
+          </span>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
